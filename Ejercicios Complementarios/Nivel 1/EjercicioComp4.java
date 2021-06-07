@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class EjercicioComp4 {
-
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
@@ -9,9 +8,7 @@ public class EjercicioComp4 {
         int numero = scan.nextInt();
         
         int resultado = factorial(numero);
-        scan.close();
-      
-         
+        scan.close();        
 
         System.out.printf("El factorial es: " + resultado);
     }
@@ -24,7 +21,6 @@ public class EjercicioComp4 {
             factorial *= num;
             num--;                     
         }
-        return factorial;       
-    
+        return factorial;     
     }
 }

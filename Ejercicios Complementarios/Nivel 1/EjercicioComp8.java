@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class EjercicioComp8 {
-
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
@@ -17,6 +16,7 @@ public class EjercicioComp8 {
         scan.close();
 
         //imprime los datos
+        System.out.println("");
         System.out.println(ciudad + " - " + direccion + " - " + edad + " - " + nombre);   
     }    
 }

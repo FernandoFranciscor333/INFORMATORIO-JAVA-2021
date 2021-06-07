@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class EjercicioComp6 {
-
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);   
         System.out.println("Ingrese el primer número: ");   
@@ -12,7 +11,6 @@ public class EjercicioComp6 {
     
         int resultado = potencia(num1, num2);
         System.out.println(num1+ " elevado a " + num2 + " = "+ resultado);
-
     }   
 
     //calcula la potencia por multiplicación sucesiva y devuelve un resultado.  
@@ -22,6 +20,5 @@ public class EjercicioComp6 {
             potencia = potencia*y;            
         }
         return potencia;
-    }
-    
+    }    
 }

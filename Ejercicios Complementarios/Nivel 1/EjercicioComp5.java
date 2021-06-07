@@ -14,7 +14,6 @@ public class EjercicioComp5 {
         System.out.println(num1 + " x " + num2 + " = " + resultado);
     }
 
-
     //calcula la multiplicación por sumas y devuelve un resultado   
     private static int multiplicacion(int x, int y){  
         int res = y;
@@ -22,5 +21,5 @@ public class EjercicioComp5 {
             res = res + y;            
         }
         return res;            
-        }
+    }
 }

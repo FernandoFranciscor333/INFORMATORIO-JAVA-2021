@@ -1,8 +1,7 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class EjercicioComp9 {
-    
+public class EjercicioComp9 {    
     public static void main(String[] args) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Ingrese la frase: ");
@@ -19,9 +18,6 @@ public class EjercicioComp9 {
                 contador++;
             }
         }
-
         System.out.println("La letra '" + letra + "' aparece " + contador + " veces en la frase.");
-
-
     }
 }

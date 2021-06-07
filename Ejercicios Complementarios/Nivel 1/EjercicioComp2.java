@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class EjercicioComp2 {
-
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
         int numero1;
@@ -9,7 +8,6 @@ public class EjercicioComp2 {
 
         System.out.println("Por favor, ingrese el primer número: ");
         numero1 = scan.nextInt();
-
         
         System.out.println("Por favor, ingrese el primer siguiente: ");
         numero2 = scan.nextInt();
@@ -26,8 +24,6 @@ public class EjercicioComp2 {
         System.out.println(numero1 + " - " + numero2 + " = " + resta);
         System.out.println(numero1 + " * " + numero2 + " = " + multiplicacion);
         System.out.println(numero1 + " / " + numero2 + " = " + division);
-        System.out.println(numero1 + " % " + numero2 + " = " + resto);       
-        
-    }
-    
+        System.out.println(numero1 + " % " + numero2 + " = " + resto);            
+    }    
 }

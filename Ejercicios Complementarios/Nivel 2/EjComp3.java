@@ -3,11 +3,9 @@ import java.util.List;
 import java.util.Collections;
 
 public class EjComp3 {
-
     public static void main(String[] args) {
         
         List<String> mazo = new ArrayList<>();
-
         mazo.add("A");
         mazo.add("2");
         mazo.add("3");

@@ -26,7 +26,6 @@ public class EjComp1 {
         int num=1;
 
         for(String c: ranking) {
-
             System.out.println("# "+ num + " " + c);
             num+=1;
         }        

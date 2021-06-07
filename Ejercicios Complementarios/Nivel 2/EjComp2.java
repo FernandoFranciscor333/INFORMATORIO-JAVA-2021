@@ -9,8 +9,7 @@ public class EjComp2 {
         Scanner scan = new Scanner(System.in);
         int contador = 5;
 
-
-        System.out.println("Ingrese cinco nùmeros: ");
+        System.out.println("Ingrese cinco números: ");
         do {                                
             numeros.add(scan.nextInt());
             contador -= 1;
@@ -26,8 +25,7 @@ public class EjComp2 {
 
         System.out.println("");
         System.out.println("El tamaño actualizado de la lista es: " + numeros.size());
-        System.out.println("");
-        
+        System.out.println("");        
 
         for(int n: numeros) {
             System.out.print(n+", ");            

@@ -24,15 +24,11 @@ public class EjComp7 {
 
         } while (contador != 0);
 
-
-
-
         String [] secuencia = new String[num2 - num1];
         int num = 0;
         secuencia[num] = num1 + "";
         secuencia[num2 - num1 - 1] = (num2 - 1) + "";        
         num = num + 1;
-
 
         for (int i = num1+1; i < num2; i ++){
             if (i % 2 == 0){

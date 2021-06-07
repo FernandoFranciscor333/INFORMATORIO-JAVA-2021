@@ -6,7 +6,6 @@ public class EjComp4 {
     public static void main(String[] args) {        
 
         List<String> alumnos = new ArrayList<>();
-
         alumnos.add("Ana");
         alumnos.add("Beatriz");
         alumnos.add("Carolina");
@@ -25,7 +24,6 @@ public class EjComp4 {
         List<String> divA = alumnos.subList(0, 4);
         List<String> divB = alumnos.subList(4, 8);
         List<String> divC = alumnos.subList(8, 12);
-
 
         System.out.println("División A: ");
         for (String alumno : divA) {

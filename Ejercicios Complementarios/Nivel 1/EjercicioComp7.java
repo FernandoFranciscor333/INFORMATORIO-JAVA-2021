@@ -19,7 +19,5 @@ public class EjercicioComp7{
         for(int j=0; j<cadena.length;j++){
             System.out.print(cadena[j]);
         }
-
     }
-
 }
