@@ -1,7 +1,9 @@
 {
     "java.project.sourcePaths": [
+        "Ejercicios Propuestos/EjercicioPropuesto5",
         "Ejercicios Complementarios/Nivel 2",
         "Ejercicios Complementarios/Nivel 1",
-        "Ejercicios Complementarios"
+        "Ejercicios Complementarios",
+        "Ejercicios Propuestos"
     ]
 }

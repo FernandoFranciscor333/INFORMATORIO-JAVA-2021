@@ -1,0 +1,6 @@
+Carlos,Sanchez,20-01-1980,45678.08
+Martin,Gomez,15-01-1989,42456.1
+Jose,Hernandez,13-05-1987,43552.8
+Marcos,Paz,02-01-1976,56403.3
+Arnaldo,Rodriguez,20-12-1979,51234.6
+Mauricio,Arindegui,08-03-1992,40321.4
