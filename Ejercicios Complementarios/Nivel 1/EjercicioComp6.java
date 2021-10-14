@@ -20,5 +20,5 @@ public class EjercicioComp6 {
             potencia = potencia*y;            
         }
         return potencia;
-    }    
+    }
 }

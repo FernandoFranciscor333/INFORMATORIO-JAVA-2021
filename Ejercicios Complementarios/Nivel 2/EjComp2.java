@@ -30,5 +30,5 @@ public class EjComp2 {
         for(int n: numeros) {
             System.out.print(n+", ");            
         }        
-    }    
+    }   
 }

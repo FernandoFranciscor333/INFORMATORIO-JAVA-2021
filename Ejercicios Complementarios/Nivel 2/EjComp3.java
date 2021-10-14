@@ -44,5 +44,5 @@ public class EjComp3 {
         for (String carta : mazo) {            
             System.out.print(carta + ", ");
         }        
-    }    
+    }  
 }

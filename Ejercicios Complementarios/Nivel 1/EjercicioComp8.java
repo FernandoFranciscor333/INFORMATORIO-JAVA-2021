@@ -18,5 +18,5 @@ public class EjercicioComp8 {
         //imprime los datos
         System.out.println("");
         System.out.println(ciudad + " - " + direccion + " - " + edad + " - " + nombre);   
-    }    
+    }
 }

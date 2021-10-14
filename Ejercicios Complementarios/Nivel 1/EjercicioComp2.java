@@ -25,5 +25,5 @@ public class EjercicioComp2 {
         System.out.println(numero1 + " * " + numero2 + " = " + multiplicacion);
         System.out.println(numero1 + " / " + numero2 + " = " + division);
         System.out.println(numero1 + " % " + numero2 + " = " + resto);            
-    }    
+    }
 }
