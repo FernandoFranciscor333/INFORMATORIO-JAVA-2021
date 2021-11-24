@@ -9,11 +9,10 @@ public class Ejercicio2 {
         List<Integer> listaNumeros = List.of(1, 2, 3, 4, 5);
 
         //Output
-        Potencia(listaNumeros);
-
+        potencia(listaNumeros);
     }    
 
-    public static void Potencia(List<Integer> lista){
+    public static void potencia(List<Integer> lista){
 
         List<Integer> listaPotencias = new ArrayList<Integer>();
 

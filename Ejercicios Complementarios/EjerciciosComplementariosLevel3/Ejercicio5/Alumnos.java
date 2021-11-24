@@ -1,5 +1,3 @@
-package Ejercicio5;
-
 import java.time.LocalDate;
 
 public class Alumnos {
@@ -42,6 +40,5 @@ public class Alumnos {
     public String toString() {
         return "Alumnos [apellido=" + apellido + ", fechaDeNacimiento=" + fechaDeNacimiento + ", nombre=" + nombre
                 + "]";
-    }
-    
+    }    
 }

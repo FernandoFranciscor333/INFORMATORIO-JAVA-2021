@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-
 public class Ejercicio1{
 
     public static void main(String[] args) {
@@ -17,10 +16,10 @@ public class Ejercicio1{
         palabras.add("");
 
         //Output
-        FiltroNulos(palabras);
+        filtroNulos(palabras);
     }   
 
-    public static void FiltroNulos(List<String> lista){
+    public static void filtroNulos(List<String> lista){
 
         List<String> palabrasFiltradas = Optional.ofNullable(lista)
             .orElseGet(Collections::emptyList)

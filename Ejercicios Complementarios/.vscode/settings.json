@@ -1,7 +1,10 @@
 {
     "java.project.sourcePaths": [
+        "Nivel 3",
         "Nivel 2",
         "Nivel 1",
-        "ClaseOptional"
+        "EjerciciosComplementariosLevel3/Ejercicio5",
+        "ClaseOptional",
+        "EjerciciosComplementariosLevel3"
     ]
 }

@@ -10,11 +10,10 @@ public class Ejercicio4 {
         List<Integer> numeros = List.of(1, 2, 4, 4, 4);
 
         //output
-        Factorial(numeros);
-
+        factorial(numeros);
     }    
 
-    public static void Factorial(List<Integer> lista){
+    public static void factorial(List<Integer> lista){
 
         List<Integer> listaFactoriales = new ArrayList<Integer>();
 

@@ -8,10 +8,10 @@ public class Ejercicio3 {
         List<String> palabras = List.of("Batman", "Aquaman", "Flash", "Batgirl", "Wonder Woman", "brainiac");
 
         //Output
-        FiltroDuplicados(palabras);
+        filtroDuplicados(palabras);
     }
 
-    public static void FiltroDuplicados(List<String> lista){
+    public static void filtroDuplicados(List<String> lista){
 
         int contador=0;
 

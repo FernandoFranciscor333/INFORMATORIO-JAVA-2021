@@ -1,9 +1,6 @@
-package Ejercicio5;
-
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
-
 
 public class Ejercicio5 {
 
@@ -19,11 +16,10 @@ public class Ejercicio5 {
         ); 
 
         //Output
-        Mapeador(alumnosLista);
-
+        mapeador(alumnosLista);
     }
 
-    public static void Mapeador(List<Alumnos> lista){
+    public static void mapeador(List<Alumnos> lista){
 
         HashMap<String, Integer> mapa = new HashMap<String, Integer>();
 
@@ -33,6 +29,5 @@ public class Ejercicio5 {
         mapa.put(nombreCompleto, edad);
 
         System.out.println(mapa);        
-    }
-    
+    }    
 }
