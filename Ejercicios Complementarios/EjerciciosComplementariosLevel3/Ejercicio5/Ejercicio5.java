@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.HashMap;
 import java.util.List;
 
@@ -25,7 +26,11 @@ public class Ejercicio5 {
 
         Alumnos homero = lista.get(0);
         String nombreCompleto = homero.getApellido()+" "+homero.getNombre();
-        Integer edad = 2021 - homero.getFechaDeNacimiento().getYear();
+        LocalDate fechaActual = LocalDate.parse("2021-11-28");
+        LocalDate fechaNac = homero.getFechaDeNacimiento();
+        Period diferenciaFechas = fechaNac.until(fechaActual);
+        Integer edad = diferenciaFechas.getYears();
+
         mapa.put(nombreCompleto, edad);
 
         System.out.println(mapa);        

@@ -15,10 +15,7 @@ public class Ejercicio2 {
     public static void potencia(List<Integer> lista){
 
         List<Integer> listaPotencias = new ArrayList<Integer>();
-
-        for(int numero : lista){            
-            listaPotencias.add(numero*numero);
-        }
+        lista.stream().map(x -> x*x).forEach(listaPotencias::add);        
 
         System.out.println(listaPotencias);
     }

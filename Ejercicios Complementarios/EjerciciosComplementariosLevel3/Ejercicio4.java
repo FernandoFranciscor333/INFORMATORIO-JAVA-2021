@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.stream.LongStream;
 
 public class Ejercicio4 {
     
@@ -18,13 +19,10 @@ public class Ejercicio4 {
         List<Integer> listaFactoriales = new ArrayList<Integer>();
 
         LinkedHashSet<Integer> hashSet = new LinkedHashSet<>(lista);
-        ArrayList<Integer> listaSinDuplicados = new ArrayList<>(hashSet);
+        ArrayList<Integer> listaSinDuplicados = new ArrayList<>(hashSet);        
 
         for (int numero : listaSinDuplicados){
-            int factorial = 1;
-            for (int i = 1; i<=numero; i++){
-                factorial = factorial * i;            
-            }
+            int factorial = (int) LongStream.rangeClosed(1, numero).reduce(1, (long x, long y) -> x * y); 
             listaFactoriales.add(factorial);
         }
         System.out.println(listaFactoriales);

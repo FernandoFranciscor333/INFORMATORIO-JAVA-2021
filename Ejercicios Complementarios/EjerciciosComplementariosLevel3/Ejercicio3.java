@@ -13,16 +13,7 @@ public class Ejercicio3 {
 
     public static void filtroDuplicados(List<String> lista){
 
-        int contador=0;
-
-        for(String palabra:lista){    
-            char primeraLetra = palabra.charAt(0);                     
-
-            if(primeraLetra == 'B' || primeraLetra ==  'b'){
-                contador+=1;
-                //System.out.println(primeraLetra);
-            } 
-        }
+        long contador = lista.stream().map(String::toUpperCase).filter(x -> x.startsWith("B")).count();     
         System.out.println(contador);
     }
 }
