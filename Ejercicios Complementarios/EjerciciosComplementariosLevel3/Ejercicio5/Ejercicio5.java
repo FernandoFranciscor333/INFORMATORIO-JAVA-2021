@@ -23,15 +23,15 @@ public class Ejercicio5 {
     public static void mapeador(List<Alumnos> lista){
 
         HashMap<String, Integer> mapa = new HashMap<String, Integer>();
+        LocalDate fechaActual = LocalDate.parse("2021-11-28");        
 
-        Alumnos homero = lista.get(0);
-        String nombreCompleto = homero.getApellido()+" "+homero.getNombre();
-        LocalDate fechaActual = LocalDate.parse("2021-11-28");
-        LocalDate fechaNac = homero.getFechaDeNacimiento();
-        Period diferenciaFechas = fechaNac.until(fechaActual);
-        Integer edad = diferenciaFechas.getYears();
+        for (Alumnos alumno:lista){
+            String nombreCompleto = alumno.getApellido()+" "+alumno.getNombre();
+            Period diferenciaFechas = alumno.getFechaDeNacimiento().until(fechaActual);
+            Integer edad = diferenciaFechas.getYears();
 
-        mapa.put(nombreCompleto, edad);
+            mapa.put(nombreCompleto, edad);
+        }
 
         System.out.println(mapa);        
     }    
