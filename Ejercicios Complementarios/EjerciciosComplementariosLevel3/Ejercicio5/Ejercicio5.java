@@ -11,11 +11,11 @@ public class Ejercicio5 {
 
         //Input
         List<Alumnos> alumnosLista = List.of(
-            new Alumnos("Homero", "Simpson", LocalDate.parse("2021-11-28").minusYears(30)),
-            new Alumnos("Cosme", "Fulanito", LocalDate.parse("2021-10-18").minusYears(28)),
-            new Alumnos("Juan", "Perez", LocalDate.parse("2021-04-12").minusYears(25)),
-            new Alumnos("Andrea", "Gomez", LocalDate.parse("2021-03-09").minusYears(25)),
-            new Alumnos("Maria", "Coso", LocalDate.parse("2021-01-20").minusYears(22))            
+            new Alumnos("Homero", "Simpson", LocalDate.parse("1991-11-28")),
+            new Alumnos("Cosme", "Fulanito", LocalDate.parse("1993-10-18")),
+            new Alumnos("Juan", "Perez", LocalDate.parse("1997-04-12")),
+            new Alumnos("Andrea", "Gomez", LocalDate.parse("1996-03-09")),
+            new Alumnos("Maria", "Coso", LocalDate.parse("2001-01-20"))            
         ); 
 
         //Output
