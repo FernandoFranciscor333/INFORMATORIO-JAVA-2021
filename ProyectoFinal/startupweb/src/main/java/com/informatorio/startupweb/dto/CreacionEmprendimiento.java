@@ -2,7 +2,6 @@ package com.informatorio.startupweb.dto;
 
 import java.util.List;
 
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
@@ -10,35 +9,31 @@ import javax.validation.constraints.Positive;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.informatorio.startupweb.entity.Tag;
 
+
 public class CreacionEmprendimiento {
-
-    @NotBlank
-    private String nombre;
-
-    @NotEmpty
-    private String desccripcion;
 
     @NotNull
     @Positive
-    @JsonProperty(value = "id_usuario")
+    @JsonProperty(value = "idUsuario")
     private Long idUsuario;
 
-    private List<Tag> tags;
+    @NotEmpty
+    private String nombre;
 
-    public String getNombre() {
-        return nombre;
-    }
+    @NotEmpty
+    private String descripcion;
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+    private String contenido;
 
-    public String getDesccripcion() {
-        return desccripcion;
-    }
+    private Double objetivo;
 
-    public void setDesccripcion(String desccripcion) {
-        this.desccripcion = desccripcion;
+    private Boolean publicado;
+
+    private String url;
+
+    private List<Tag> tags;    
+
+    public CreacionEmprendimiento() {
     }
 
     public Long getIdUsuario() {
@@ -49,6 +44,54 @@ public class CreacionEmprendimiento {
         this.idUsuario = idUsuario;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getContenido() {
+        return contenido;
+    }
+
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
+    }
+
+    public Double getObjetivo() {
+        return objetivo;
+    }
+
+    public void setObjetivo(Double objetivo) {
+        this.objetivo = objetivo;
+    }
+
+    public Boolean getPublicado() {
+        return publicado;
+    }
+
+    public void setPublicado(Boolean publicado) {
+        this.publicado = publicado;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     public List<Tag> getTags() {
         return tags;
     }
@@ -56,7 +99,6 @@ public class CreacionEmprendimiento {
     public void setTags(List<Tag> tags) {
         this.tags = tags;
     }
-
     
     
 }

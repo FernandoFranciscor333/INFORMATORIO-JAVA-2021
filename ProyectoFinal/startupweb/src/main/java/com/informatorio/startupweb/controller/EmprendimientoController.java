@@ -2,6 +2,9 @@ package com.informatorio.startupweb.controller;
 
 import java.util.ArrayList;
 
+import javax.validation.Valid;
+
+import com.informatorio.startupweb.dto.CreacionEmprendimiento;
 import com.informatorio.startupweb.entity.Emprendimiento;
 import com.informatorio.startupweb.repository.EmprendimientoRepository;
 import com.informatorio.startupweb.repository.TagRepository;
@@ -39,8 +42,8 @@ public class EmprendimientoController {
 
     //ALTA, BAJA Y MODIFICACION
     @PostMapping("/nuevo_emprendimiento")
-    public Emprendimiento crearEmprendimiento(@RequestBody Emprendimiento emprendimiento){
-        return this.emprendimientoService.crearEmprendimiento(emprendimiento);
+    public ResponseEntity<?> crearEmprendimiento(@Valid @RequestBody CreacionEmprendimiento creacionEmprendimiento){
+        return new ResponseEntity<>(emprendimientoService.crearEmprendimiento(creacionEmprendimiento), HttpStatus.CREATED);
     }
 
     @DeleteMapping(path = "{id}")

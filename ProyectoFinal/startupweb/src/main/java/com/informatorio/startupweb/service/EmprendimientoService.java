@@ -1,14 +1,19 @@
 package com.informatorio.startupweb.service;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
+import java.util.List;
+
+
+import javax.persistence.EntityNotFoundException;
+
+import com.informatorio.startupweb.dto.CreacionEmprendimiento;
 import com.informatorio.startupweb.entity.Emprendimiento;
-import com.informatorio.startupweb.entity.Tag;
+
+import com.informatorio.startupweb.entity.Usuario;
 import com.informatorio.startupweb.repository.EmprendimientoRepository;
 import com.informatorio.startupweb.repository.TagRepository;
+import com.informatorio.startupweb.repository.UsuarioRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,11 +21,19 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmprendimientoService {
 
-    @Autowired
-    EmprendimientoRepository emprendimientoRepository;
+    private final EmprendimientoRepository emprendimientoRepository;
+    private final UsuarioRepository usuarioRepository;
+    private final TagRepository tagRepository;
 
     @Autowired
-    TagRepository tagRepository;
+    public EmprendimientoService(EmprendimientoRepository emprendimientoRepository,
+                                 UsuarioRepository usuarioRepository,
+                                 TagRepository tagRepository) {
+        this.emprendimientoRepository = emprendimientoRepository;
+        this.usuarioRepository = usuarioRepository;
+        this.tagRepository = tagRepository;
+    }
+
 
     public ArrayList<Emprendimiento> obtenerTodosLosEmprendimientos() {
         return (ArrayList<Emprendimiento>)emprendimientoRepository.findAll();
@@ -30,7 +43,20 @@ public class EmprendimientoService {
         return emprendimientoRepository.getById(id);
     }
 
-    public Emprendimiento crearEmprendimiento(Emprendimiento emprendimiento) {
+    //ALTA, BAJA Y MODIFICACIÓN
+    public Emprendimiento crearEmprendimiento(CreacionEmprendimiento creacionEmprendimiento) {
+        Usuario usuario = usuarioRepository.findById(creacionEmprendimiento.getIdUsuario())
+            .orElseThrow(() -> new EntityNotFoundException("Usuario inexistente"));        
+        Emprendimiento emprendimiento = new Emprendimiento();
+        emprendimiento.setCreador(usuario);
+        emprendimiento.setNombre(creacionEmprendimiento.getNombre());
+        emprendimiento.setDescripcion(creacionEmprendimiento.getDescripcion());        
+        emprendimiento.setContenido(creacionEmprendimiento.getContenido());
+        emprendimiento.setObjetivo(creacionEmprendimiento.getObjetivo());
+        emprendimiento.setPublicado(creacionEmprendimiento.getPublicado());
+        emprendimiento.setUrl(creacionEmprendimiento.getUrl());
+        emprendimiento.setTags(creacionEmprendimiento.getTags());
+
         return emprendimientoRepository.save(emprendimiento);
     }
 
@@ -66,10 +92,12 @@ public class EmprendimientoService {
         return emprendimientoRepository.save(emprendimientoActualizado);
     }
 
+    //EMPRENDIMIENTOS SIN PUBLICAR
     public ArrayList<Emprendimiento> obtenerTodosLosEmprendimientosSinPublicar() {
         return (ArrayList<Emprendimiento>)emprendimientoRepository.findByNoPublicado();
     }
 
+    //EMPRENDIMIENTOS POR TAG
     public List<Emprendimiento> obtenerEmprendimientoPorTag(String nombreTag) throws Exception{
         try {
             List<Emprendimiento> emprendimientosTags = emprendimientoRepository.findByNombreTag(nombreTag);

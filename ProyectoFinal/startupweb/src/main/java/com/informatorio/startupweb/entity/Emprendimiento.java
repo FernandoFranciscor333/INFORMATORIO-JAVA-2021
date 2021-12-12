@@ -9,6 +9,7 @@ import java.util.Set;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -28,6 +29,10 @@ public class Emprendimiento {
 
     @Column(name = "nombre")
     private String nombre;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"hibernateLazyInitializer"})
+    private Usuario creador;
 
     @Column(name = "descripcion")
     private String descripcion;
@@ -52,54 +57,19 @@ public class Emprendimiento {
     private List<Tag> tags = new ArrayList<>();
 
 
-
-
-    /*@ElementCollection
-    @CollectionTable(name = "tags")
-    private List<String> tags = new ArrayList<>();*/
-
-    //private List<Tags> tags;
-
-    /*@OneToMany(mappedBy = "emprendimientos")
-    @JsonIgnore
-    private List<Voto> votos = new ArrayList<>();*/
-
-    
-
-
     public Emprendimiento() {
     }
 
-    
 
-    public Emprendimiento(String nombre, String descripcion, String contenido) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.contenido = contenido;
+    public Long getId() {
+        return id;
     }
 
 
-
-    public Emprendimiento(Long id, String nombre, String descripcion, String contenido, LocalDate fechaDeAlta,
-            Double objetivo, Boolean publicado, String url, List<Tag> tags) {
+    public void setId(Long id) {
         this.id = id;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.contenido = contenido;
-        this.fechaDeAlta = fechaDeAlta;
-        this.objetivo = objetivo;
-        this.publicado = publicado;
-        this.url = url;
-        this.tags = tags;
     }
 
-    public List<Tag> getTags() {
-        return tags;
-    }
-
-    public void setTags(List<Tag> tags) {
-        this.tags = tags;
-    }
 
     public String getNombre() {
         return nombre;
@@ -108,6 +78,16 @@ public class Emprendimiento {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+
+    public Usuario getCreador() {
+        return creador;
+    }
+
+
+    public void setCreador(Usuario creador) {
+        this.creador = creador;
     }
 
 
@@ -128,6 +108,16 @@ public class Emprendimiento {
 
     public void setContenido(String contenido) {
         this.contenido = contenido;
+    }
+
+
+    public LocalDate getFechaDeAlta() {
+        return fechaDeAlta;
+    }
+
+
+    public void setFechaDeAlta(LocalDate fechaDeAlta) {
+        this.fechaDeAlta = fechaDeAlta;
     }
 
 
@@ -159,5 +149,17 @@ public class Emprendimiento {
     public void setUrl(String url) {
         this.url = url;
     }
+
+
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }   
+
+    
     
 }

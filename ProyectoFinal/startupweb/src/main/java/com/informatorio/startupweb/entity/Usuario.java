@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.annotations.CreationTimestamp;
@@ -41,7 +42,10 @@ public class Usuario {
     private String ciudad;
     private String provincia;
     private String pais;
-    private String tipoDeUsuario;
+
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private TipoDeUsuario tipoDeUsuario;
 
     @OneToMany(mappedBy = "creador", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Emprendimiento> emprendimientos = new ArrayList<>();
@@ -49,21 +53,6 @@ public class Usuario {
     public Usuario() {
 
     }
-
-    public Usuario(Long id, String nombre, String apellido, String email, LocalDate fechaDeAlta, String ciudad,
-            String provincia, String pais, String tipoDeUsuario) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.email = email;
-        this.fechaDeAlta = fechaDeAlta;
-        this.ciudad = ciudad;
-        this.provincia = provincia;
-        this.pais = pais;
-        this.tipoDeUsuario = tipoDeUsuario;
-        //this.emprendimientos = emprendimientos;
-    }
-
 
     public Long getId() {
         return id;
@@ -95,6 +84,14 @@ public class Usuario {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public LocalDate getFechaDeAlta() {
@@ -129,12 +126,26 @@ public class Usuario {
         this.pais = pais;
     }
 
-    public String getTipoDeUsuario() {
+    public TipoDeUsuario getTipoDeUsuario() {
         return tipoDeUsuario;
     }
 
-    public void setTipoDeUsuario(String tipoDeUsuario) {
+    public void setTipoDeUsuario(TipoDeUsuario tipoDeUsuario) {
         this.tipoDeUsuario = tipoDeUsuario;
     }
+
+    public void agregarEmprendimiento(Emprendimiento emprendimiento){
+        emprendimientos.add(emprendimiento);
+        emprendimiento.setCreador(this);
+    }
+
+    public void removerEmprendimiento(Emprendimiento emprendimiento){
+        emprendimientos.remove(emprendimiento);
+        emprendimiento.setCreador(null);
+    }
+
+    
+
+   
     
 }
