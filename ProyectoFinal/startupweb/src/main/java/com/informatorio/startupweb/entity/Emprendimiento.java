@@ -56,9 +56,23 @@ public class Emprendimiento {
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Tag> tags = new ArrayList<>();
 
+    @OneToMany(mappedBy = "emprendimiento",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Voto> votos = new ArrayList<>();
+
+
 
     public Emprendimiento() {
     }
+
+    public List<Voto> getVotos() {
+        return votos;
+    }
+    
+    public void setVotos(List<Voto> votos) {
+        this.votos = votos;
+    }
+
+
 
 
     public Long getId() {

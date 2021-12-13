@@ -32,8 +32,7 @@ public class Usuario {
 
     @NonNull
     @ToString.Exclude
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)    
     private String password;
 
     @CreationTimestamp
@@ -50,9 +49,22 @@ public class Usuario {
     @OneToMany(mappedBy = "creador", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Emprendimiento> emprendimientos = new ArrayList<>();
 
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Voto> votos = new ArrayList<>();
+
     public Usuario() {
 
+    }    
+
+    public List<Voto> getVotos() {
+        return votos;
     }
+
+    public void setVotos(List<Voto> votos) {
+        this.votos = votos;
+    }
+
+
 
     public Long getId() {
         return id;
@@ -86,6 +98,7 @@ public class Usuario {
         this.email = email;
     }
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     public String getPassword() {
         return password;
     }
