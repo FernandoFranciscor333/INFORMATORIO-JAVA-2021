@@ -2,6 +2,7 @@ package com.informatorio.startupweb.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
@@ -79,8 +80,8 @@ public class EventoService {
         return emprendimientoRepository.save(emprendimientoRegistrado);
     }
 
-    public Object rankear(Long id) {
-        return null;
+    public Optional<Evento> rankear(Long id) {
+        return eventoRepository.findById(id);
     }
 
 

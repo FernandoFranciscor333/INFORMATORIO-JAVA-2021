@@ -64,6 +64,8 @@ public class Emprendimiento {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<Evento> eventos;
 
+    private Integer contadorDeVotos = 0;
+
     /*@JoinTable(
         name = "eventos_emprendimientos",
         joinColumns = {@JoinColumn(name = "emprendimientos",nullable = false)},
@@ -84,9 +86,15 @@ public class Emprendimiento {
             this.eventos = new ArrayList<>();
         }
         this.eventos.add(evento);
+    } 
+
+    public Integer getContadorDeVotos() {
+        return contadorDeVotos;
     }
 
-    
+    public void setContadorDeVotos(Integer contadorDeVotos) {
+        this.contadorDeVotos = contadorDeVotos;
+    }
 
     public List<Evento> getEventos() {
         return eventos;

@@ -64,6 +64,7 @@ public class EventoController {
         return this.eventoService.actualizarEvento(id, evento);
     }
 
+    @GetMapping(value = "/{id}/ranking")
     public ResponseEntity<?> rankingDelEvento(@PathVariable("id") Long id) {
         return new ResponseEntity<>(eventoService.rankear(id), HttpStatus.OK);
     }

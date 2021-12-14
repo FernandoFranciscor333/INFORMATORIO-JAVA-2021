@@ -32,10 +32,13 @@ public class VotoService {
             .orElseThrow(() -> new EntityNotFoundException("Usuario inexistente"));
         Emprendimiento emprendimiento = emprendimientoRepository.findById(votoDto.getEmprendimientoId())
             .orElseThrow(() -> new EntityNotFoundException("Usuario inexistente"));
+        emprendimiento.setContadorDeVotos(emprendimiento.getContadorDeVotos()+1);
+        emprendimientoRepository.save(emprendimiento);
         Voto votoUsuario = new Voto();
         votoUsuario.setEmprendimiento(emprendimiento);
         votoUsuario.setUsuario(usuario);
         votoUsuario.setGeneradoPor(votoDto.getGeneradoPor());
+        
 
         return votoRepository.save(votoUsuario);
 
