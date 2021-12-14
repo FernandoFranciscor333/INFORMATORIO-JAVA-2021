@@ -64,8 +64,6 @@ public class Usuario {
         this.votos = votos;
     }
 
-
-
     public Long getId() {
         return id;
     }
@@ -156,9 +154,5 @@ public class Usuario {
         emprendimientos.remove(emprendimiento);
         emprendimiento.setCreador(null);
     }
-
-    
-
-   
     
 }

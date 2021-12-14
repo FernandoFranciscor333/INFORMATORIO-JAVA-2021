@@ -10,6 +10,7 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -59,10 +60,45 @@ public class Emprendimiento {
     @OneToMany(mappedBy = "emprendimiento",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Voto> votos = new ArrayList<>();
 
+    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private List<Evento> eventos;
+
+    /*@JoinTable(
+        name = "eventos_emprendimientos",
+        joinColumns = {@JoinColumn(name = "emprendimientos",nullable = false)},
+        inverseJoinColumns = {@JoinColumn(name = "eventos",nullable = false)}
+    )
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,//When we save the Emprendimiento entity, the Event entity will also get saved
+            CascadeType.MERGE //Cascade the merge operation to all associated entities merge
+    })*/
+
 
 
     public Emprendimiento() {
     }
+
+    public void addEvento(Evento evento) {
+        if (this.eventos == null) {
+            this.eventos = new ArrayList<>();
+        }
+        this.eventos.add(evento);
+    }
+
+    
+
+    public List<Evento> getEventos() {
+        return eventos;
+    }
+
+
+
+    public void setEventos(List<Evento> eventos) {
+        this.eventos = eventos;
+    }
+
+
 
     public List<Voto> getVotos() {
         return votos;

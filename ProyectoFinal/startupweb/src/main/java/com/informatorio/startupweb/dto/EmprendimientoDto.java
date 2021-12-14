@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.informatorio.startupweb.entity.Tag;
 
 
-public class CreacionEmprendimiento {
+public class EmprendimientoDto {
 
     @NotNull
     @Positive
@@ -33,7 +33,7 @@ public class CreacionEmprendimiento {
 
     private List<Tag> tags;    
 
-    public CreacionEmprendimiento() {
+    public EmprendimientoDto() {
     }
 
     public Long getIdUsuario() {

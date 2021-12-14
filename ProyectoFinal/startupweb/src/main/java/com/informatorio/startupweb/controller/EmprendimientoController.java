@@ -3,12 +3,14 @@ package com.informatorio.startupweb.controller;
 import java.util.ArrayList;
 
 import javax.validation.Valid;
-
-import com.informatorio.startupweb.dto.CreacionEmprendimiento;
+import com.informatorio.startupweb.dto.EmprendimientoDto;
+import com.informatorio.startupweb.dto.EventoDto;
 import com.informatorio.startupweb.entity.Emprendimiento;
 import com.informatorio.startupweb.repository.EmprendimientoRepository;
+import com.informatorio.startupweb.repository.EventoRepository;
 import com.informatorio.startupweb.repository.TagRepository;
 import com.informatorio.startupweb.service.EmprendimientoService;
+import com.informatorio.startupweb.service.EventoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,6 +29,11 @@ public class EmprendimientoController {
     EmprendimientoService emprendimientoService;
     @Autowired
     TagRepository tagRepository;
+    @Autowired
+    EventoRepository eventoRepository;
+    @Autowired
+    EventoService eventoService;
+
 
     //OBTENER TODOS LOS EMPRENDIMIENTOS
     @GetMapping("/emprendimientos_lista")
@@ -42,8 +49,8 @@ public class EmprendimientoController {
 
     //ALTA, BAJA Y MODIFICACION
     @PostMapping("/nuevo_emprendimiento")
-    public ResponseEntity<?> crearEmprendimiento(@Valid @RequestBody CreacionEmprendimiento creacionEmprendimiento){
-        return new ResponseEntity<>(emprendimientoService.crearEmprendimiento(creacionEmprendimiento), HttpStatus.CREATED);
+    public ResponseEntity<?> crearEmprendimiento(@Valid @RequestBody EmprendimientoDto emprendimientoDto){
+        return new ResponseEntity<>(emprendimientoService.crearEmprendimiento(emprendimientoDto), HttpStatus.CREATED);
     }
 
     @DeleteMapping(path = "{id}")
@@ -58,7 +65,7 @@ public class EmprendimientoController {
 
     @PutMapping("/{id}")
     public Emprendimiento actualizarEmprendimiento(@PathVariable Long id, @RequestBody Emprendimiento emprendimiento){
-        return this.emprendimientoService.actualizarUsuario(id, emprendimiento);
+        return this.emprendimientoService.actualizarEmprendimiento(id, emprendimiento);
     }
 
     //OBTENER EMPRENDIMIENTOS SIN PUBLICADOS
@@ -77,6 +84,15 @@ public class EmprendimientoController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
                 ("{/error\": \""+e.getMessage()+"\"}"));
         }
+    }
+
+    //REGISTRAR EVENTO
+    @PostMapping(value = "registrar/{emprendimientoId}/eventos/{eventoId}")
+    public ResponseEntity<?> registrarEvento(@PathVariable("emprendimientoId") Long emprendimientoId,
+                                             @PathVariable("eventoId") Long eventoId, EventoDto eventoDTO) {
+        emprendimientoRepository.findById(emprendimientoId);
+        eventoRepository.findById(eventoId);
+        return new ResponseEntity<>(eventoService.registrar(emprendimientoId, eventoId, eventoDTO), HttpStatus.CREATED);                                     
     }
 
 

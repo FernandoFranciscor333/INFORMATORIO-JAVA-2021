@@ -7,7 +7,8 @@ import java.util.List;
 
 import javax.persistence.EntityNotFoundException;
 
-import com.informatorio.startupweb.dto.CreacionEmprendimiento;
+
+import com.informatorio.startupweb.dto.EmprendimientoDto;
 import com.informatorio.startupweb.entity.Emprendimiento;
 
 import com.informatorio.startupweb.entity.Usuario;
@@ -44,18 +45,18 @@ public class EmprendimientoService {
     }
 
     //ALTA, BAJA Y MODIFICACIÓN
-    public Emprendimiento crearEmprendimiento(CreacionEmprendimiento creacionEmprendimiento) {
-        Usuario usuario = usuarioRepository.findById(creacionEmprendimiento.getIdUsuario())
+    public Emprendimiento crearEmprendimiento(EmprendimientoDto emprendimientoDto) {
+        Usuario usuario = usuarioRepository.findById(emprendimientoDto.getIdUsuario())
             .orElseThrow(() -> new EntityNotFoundException("Usuario inexistente"));        
         Emprendimiento emprendimiento = new Emprendimiento();
         emprendimiento.setCreador(usuario);
-        emprendimiento.setNombre(creacionEmprendimiento.getNombre());
-        emprendimiento.setDescripcion(creacionEmprendimiento.getDescripcion());        
-        emprendimiento.setContenido(creacionEmprendimiento.getContenido());
-        emprendimiento.setObjetivo(creacionEmprendimiento.getObjetivo());
-        emprendimiento.setPublicado(creacionEmprendimiento.getPublicado());
-        emprendimiento.setUrl(creacionEmprendimiento.getUrl());
-        emprendimiento.setTags(creacionEmprendimiento.getTags());
+        emprendimiento.setNombre(emprendimientoDto.getNombre());
+        emprendimiento.setDescripcion(emprendimientoDto.getDescripcion());        
+        emprendimiento.setContenido(emprendimientoDto.getContenido());
+        emprendimiento.setObjetivo(emprendimientoDto.getObjetivo());
+        emprendimiento.setPublicado(emprendimientoDto.getPublicado());
+        emprendimiento.setUrl(emprendimientoDto.getUrl());
+        emprendimiento.setTags(emprendimientoDto.getTags());
 
         return emprendimientoRepository.save(emprendimiento);
     }
@@ -69,7 +70,7 @@ public class EmprendimientoService {
         }
     }
 
-    public Emprendimiento actualizarUsuario(Long id, Emprendimiento emprendimiento) {
+    public Emprendimiento actualizarEmprendimiento(Long id, Emprendimiento emprendimiento) {
         Emprendimiento emprendimientoActualizado = emprendimientoRepository.getById(id);
         if(emprendimiento.getNombre() != null){
             emprendimientoActualizado.setNombre(emprendimiento.getNombre());
