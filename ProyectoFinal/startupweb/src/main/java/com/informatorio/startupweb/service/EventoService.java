@@ -69,7 +69,7 @@ public class EventoService {
         return eventoRepository.save(eventoActualizado);
     }
 
-    public Emprendimiento registrar(Long emprendimientoId, Long eventoId, EventoDto eventoDto) {
+    /*public Emprendimiento registrar(Long emprendimientoId, Long eventoId, EventoDto eventoDto) {
         Emprendimiento emprendimientoRegistrado = emprendimientoRepository.getById(emprendimientoId);
         Evento eventoRegistrado = eventoRepository.getById(eventoId);
         if (eventoRegistrado.getEstado() == EstadoEvento.ABIERTO) { emprendimientoRegistrado.addEvento(eventoRegistrado);
@@ -78,23 +78,39 @@ public class EventoService {
             System.out.println("Tiempo de suscripcion finalizado");
         } else { System.out.println("Evento finalizado."); }
         return emprendimientoRepository.save(emprendimientoRegistrado);
-    }
-
-    public Optional<Evento> rankear(Long id) {
-        return eventoRepository.findById(id);
-    }
+    }*/
 
 
-    /*public Evento suscribirEmprendimiento(@Valid EventoDto eventoDto) {
+    public Evento suscribirEmprendimiento(@Valid EventoDto eventoDto) {
         Emprendimiento emprendimiento = emprendimientoRepository.findById(eventoDto.getEmprendimientoId())
             .orElseThrow(() -> new EntityNotFoundException("Emprendimiento inexistente"));
         Evento eventoSuscripcion = eventoRepository.findById(eventoDto.getEventoId())
             .orElseThrow(() -> new EntityNotFoundException("Evento inexistente"));
-        eventoSuscripcion.setEmprendimientos(emprendimiento);
+        eventoSuscripcion.agregarEmprendimiento(emprendimiento);
 
         return eventoRepository.save(eventoSuscripcion);
 
+    }
+
+    /*public Optional<Evento> rankear(Long id) {
+        return eventoRepository.findById(id);
     }*/
+
+    public List<String> rankearEmprendimientos(Long id) {
+        Optional<Evento> eventoOpc = eventoRepository.findById(id);
+        Evento evento = eventoOpc.get();
+        List<Emprendimiento> emprendimientosEvento = evento.getEmprendimientos();
+        List<String> ranking = new ArrayList<>();
+        int puesto = 1;        
+        for (Emprendimiento e:emprendimientosEvento){
+            String nombre = puesto + "#) " + "Nombre: " + e.getNombre() + " votos: " + e.getContadorDeVotos();
+            puesto+=1;
+            ranking.add(nombre);            
+        }
+        return ranking;
+    }
+
+
 
     
 }

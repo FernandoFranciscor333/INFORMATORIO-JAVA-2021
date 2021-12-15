@@ -60,9 +60,12 @@ public class Emprendimiento {
     @OneToMany(mappedBy = "emprendimiento",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Voto> votos = new ArrayList<>();
 
-    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    
+    //@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+
+    @ManyToMany(mappedBy = "emprendimientos")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private List<Evento> eventos;
+    private List<Evento> eventos = new ArrayList<>();
 
     private Integer contadorDeVotos = 0;
 
@@ -86,7 +89,9 @@ public class Emprendimiento {
             this.eventos = new ArrayList<>();
         }
         this.eventos.add(evento);
-    } 
+    }   
+
+    
 
     public Integer getContadorDeVotos() {
         return contadorDeVotos;

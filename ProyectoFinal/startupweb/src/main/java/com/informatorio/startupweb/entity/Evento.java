@@ -39,33 +39,27 @@ public class Evento {
     @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
     private LocalDate fechaDeCierre;
 
-    
-    //@OrderBy("votesCount DESC")
-
-    @ManyToMany(mappedBy = "eventos")
-    @JsonIgnoreProperties({"descripcion","contenido","fechaDeCreacion","objetivo","publicado","tags"})
+    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @JsonIgnoreProperties({"descripcion","contenido","publicado_en","objetivo","publicado","tags"})
     @OrderBy("contadorDeVotos DESC")
-    private List<Emprendimiento> emprendimientos;
+    private List<Emprendimiento> emprendimientos = new ArrayList<>();
 
     @NotNull
     @Enumerated(EnumType.STRING)
     private EstadoEvento estado;
 
-    //private List<Emprendimiento> supscriptores = new ArrayList<>();
-
     private Double premio;
 
-    public void agregarEmprendimiento(Emprendimiento emprendimiento){
-        this.emprendimientos = new ArrayList<>();
+    public void agregarEmprendimiento(Emprendimiento emprendimiento){        
+        /*if (this.emprendimientos == null) {
+            this.emprendimientos = new ArrayList<>();
+        }*/
         this.emprendimientos.add(emprendimiento);
+        
     }
-
-    
 
     public Evento() {
     }
-
-    
 
     public String getNombreEvento() {
         return nombreEvento;

@@ -64,16 +64,21 @@ public class EventoController {
         return this.eventoService.actualizarEvento(id, evento);
     }
 
-    @GetMapping(value = "/{id}/ranking")
+    /*@GetMapping(value = "/{id}/ranking")
     public ResponseEntity<?> rankingDelEvento(@PathVariable("id") Long id) {
         return new ResponseEntity<>(eventoService.rankear(id), HttpStatus.OK);
-    }
+    }*/
 
 
     //SUSCRIBIR EMPRENDIMIENTO
-    /*@PostMapping("/suscribir")
+    @PostMapping("/suscribir")
     public ResponseEntity<?> suscribirEmprendimiento(@Valid @RequestBody EventoDto eventoDto){
         return new ResponseEntity<>(eventoService.suscribirEmprendimiento(eventoDto), HttpStatus.CREATED);
-    }*/
+    }
+
+    @GetMapping(value = "/{id}/ranking")
+    public ResponseEntity<?> rankingDelEvento(@PathVariable("id") Long id) {
+        return new ResponseEntity<>(eventoService.rankearEmprendimientos(id), HttpStatus.OK);
+    }
     
 }

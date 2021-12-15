@@ -87,13 +87,14 @@ public class EmprendimientoController {
     }
 
     //REGISTRAR EVENTO
-    @PostMapping(value = "registrar/{emprendimientoId}/eventos/{eventoId}")
+    /*@PostMapping(value = "registrar/{emprendimientoId}/eventos/{eventoId}")
     public ResponseEntity<?> registrarEvento(@PathVariable("emprendimientoId") Long emprendimientoId,
                                              @PathVariable("eventoId") Long eventoId, EventoDto eventoDTO) {
         emprendimientoRepository.findById(emprendimientoId);
         eventoRepository.findById(eventoId);
         return new ResponseEntity<>(eventoService.registrar(emprendimientoId, eventoId, eventoDTO), HttpStatus.CREATED);                                     
-    }
+    }*/
+
 
 
     /*@GetMapping("/busqueda_por_tag")
