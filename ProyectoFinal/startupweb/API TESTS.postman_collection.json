@@ -485,6 +485,35 @@
 					"response": []
 				},
 				{
+					"name": "ACTIVAR EMPRENDIMIENTO",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"publicado\":\"true\"    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/emprendimiento/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"emprendimiento",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "BUSQUEDA NO PUBLICADOS",
 					"request": {
 						"method": "GET",
