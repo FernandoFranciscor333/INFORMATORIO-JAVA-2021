@@ -73,7 +73,6 @@ public class EventoService {
         eventoSuscripcion.agregarEmprendimiento(emprendimiento);
 
         return eventoRepository.save(eventoSuscripcion);
-
     }
 
     //RANKING EMPRENDIMIENTOS

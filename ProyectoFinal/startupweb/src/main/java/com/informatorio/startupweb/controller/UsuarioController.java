@@ -36,7 +36,7 @@ public class UsuarioController {
     //ALTA, BAJA y MODIFICACION
     @PostMapping("/nuevo_usuario")
     public Usuario crearUsuario(@RequestBody Usuario usuario){
-        return this.usuarioService.crearUsuario(usuario);
+        return usuarioService.crearUsuario(usuario);
     }
 
     @DeleteMapping(path = "{id}")

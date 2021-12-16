@@ -45,6 +45,7 @@ public class Usuario {
     @OneToMany(mappedBy = "creador", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Emprendimiento> emprendimientos = new ArrayList<>();
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Voto> votos = new ArrayList<>();
 

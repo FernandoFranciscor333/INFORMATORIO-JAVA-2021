@@ -31,8 +31,13 @@ public class UsuarioService {
 
     //ALTA, BAJA y MODIFICACION
     public Usuario crearUsuario(Usuario usuario){
+        Optional<Usuario> usuarioOptional = usuarioRepository.findByEmail(usuario.getEmail());
+        if(usuarioOptional.isPresent()){
+            throw new IllegalStateException("Email ya existe");
+        }
         return usuarioRepository.save(usuario);
     }
+
 
     public boolean eliminarUsuario(Long id){
         try{
