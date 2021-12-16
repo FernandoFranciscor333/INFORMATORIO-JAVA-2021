@@ -29,15 +29,20 @@ public class VotoService {
         Usuario usuario = usuarioRepository.findById(votoDto.getUsuarioId())
             .orElseThrow(() -> new EntityNotFoundException("Usuario inexistente"));
         Emprendimiento emprendimiento = emprendimientoRepository.findById(votoDto.getEmprendimientoId())
-            .orElseThrow(() -> new EntityNotFoundException("Usuario inexistente"));
-        emprendimiento.setContadorDeVotos(emprendimiento.getContadorDeVotos()+1);
-        emprendimientoRepository.save(emprendimiento);
-        Voto votoUsuario = new Voto();
-        votoUsuario.setEmprendimiento(emprendimiento);
-        votoUsuario.setUsuario(usuario);
-        votoUsuario.setGeneradoPor(votoDto.getGeneradoPor());        
+            .orElseThrow(() -> new EntityNotFoundException("Emprendimiento inexistente"));
 
-        return votoRepository.save(votoUsuario);
+        if(emprendimiento.getPublicado()){
+            emprendimiento.setContadorDeVotos(emprendimiento.getContadorDeVotos()+1);
+            emprendimientoRepository.save(emprendimiento);
+            Voto votoUsuario = new Voto();
+            votoUsuario.setEmprendimiento(emprendimiento);
+            votoUsuario.setUsuario(usuario);
+            votoUsuario.setGeneradoPor(votoDto.getGeneradoPor()); 
+
+            return votoRepository.save(votoUsuario);
+        } else {
+            return "El emprendimiento no existe o no está aún publicado";
+        }        
     }
 
     //BUSCAR VOTOS DE USUARIO
