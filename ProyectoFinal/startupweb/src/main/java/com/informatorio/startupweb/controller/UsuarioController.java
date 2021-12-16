@@ -1,13 +1,10 @@
 package com.informatorio.startupweb.controller;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Optional;
-
 import com.informatorio.startupweb.entity.Usuario;
 import com.informatorio.startupweb.repository.UsuarioRepository;
 import com.informatorio.startupweb.service.UsuarioService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
@@ -73,6 +70,5 @@ public class UsuarioController {
     @GetMapping(value="/busqueda_fecha")
     public ResponseEntity<?> busqueda_fecha(@DateTimeFormat (iso = DateTimeFormat.ISO.DATE) @RequestParam LocalDate fecha){
         return new ResponseEntity<>(usuarioService.obtenerUsuariosPorFecha(fecha), HttpStatus.OK);            
-    }
-    
+    }    
 }

@@ -3,17 +3,13 @@ package com.informatorio.startupweb.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
 import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
-
 import com.informatorio.startupweb.dto.EventoDto;
 import com.informatorio.startupweb.entity.Emprendimiento;
-import com.informatorio.startupweb.entity.EstadoEvento;
 import com.informatorio.startupweb.entity.Evento;
 import com.informatorio.startupweb.repository.EmprendimientoRepository;
 import com.informatorio.startupweb.repository.EventoRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,10 +18,10 @@ public class EventoService {
 
     @Autowired
     private EventoRepository eventoRepository;
-
     @Autowired
     private EmprendimientoRepository emprendimientoRepository;
 
+    //GET ALL/BY ID
     public List<Evento> obtenerTodosLosEventos() {
         return (List<Evento>)eventoRepository.findAll();
     }
@@ -33,7 +29,6 @@ public class EventoService {
     public Evento obtenerPorId(Long id) {
         return eventoRepository.getById(id);
     }
-
 
     //ALTA, BAJA Y MODIFICACION
     public Evento crearEvento(@Valid Evento evento) {
@@ -69,18 +64,7 @@ public class EventoService {
         return eventoRepository.save(eventoActualizado);
     }
 
-    /*public Emprendimiento registrar(Long emprendimientoId, Long eventoId, EventoDto eventoDto) {
-        Emprendimiento emprendimientoRegistrado = emprendimientoRepository.getById(emprendimientoId);
-        Evento eventoRegistrado = eventoRepository.getById(eventoId);
-        if (eventoRegistrado.getEstado() == EstadoEvento.ABIERTO) { emprendimientoRegistrado.addEvento(eventoRegistrado);
-            System.out.println("Suscripcion correcta");
-        } else if (eventoRegistrado.getEstado() == EstadoEvento.EN_CURSO) { 
-            System.out.println("Tiempo de suscripcion finalizado");
-        } else { System.out.println("Evento finalizado."); }
-        return emprendimientoRepository.save(emprendimientoRegistrado);
-    }*/
-
-
+    //SUSCRIBIR EMPRENDIMIENTO
     public Evento suscribirEmprendimiento(@Valid EventoDto eventoDto) {
         Emprendimiento emprendimiento = emprendimientoRepository.findById(eventoDto.getEmprendimientoId())
             .orElseThrow(() -> new EntityNotFoundException("Emprendimiento inexistente"));
@@ -92,10 +76,7 @@ public class EventoService {
 
     }
 
-    /*public Optional<Evento> rankear(Long id) {
-        return eventoRepository.findById(id);
-    }*/
-
+    //RANKING EMPRENDIMIENTOS
     public List<String> rankearEmprendimientos(Long id) {
         Optional<Evento> eventoOpc = eventoRepository.findById(id);
         Evento evento = eventoOpc.get();
@@ -108,9 +89,5 @@ public class EventoService {
             ranking.add(nombre);            
         }
         return ranking;
-    }
-
-
-
-    
+    }    
 }

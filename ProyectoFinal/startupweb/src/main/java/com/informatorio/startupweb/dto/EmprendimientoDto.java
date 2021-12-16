@@ -1,14 +1,10 @@
 package com.informatorio.startupweb.dto;
-
 import java.util.List;
-
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.informatorio.startupweb.entity.Tag;
-
 
 public class EmprendimientoDto {
 
@@ -24,13 +20,9 @@ public class EmprendimientoDto {
     private String descripcion;
 
     private String contenido;
-
     private Double objetivo;
-
     private Boolean publicado;
-
     private String url;
-
     private List<Tag> tags;    
 
     public EmprendimientoDto() {
@@ -99,6 +91,4 @@ public class EmprendimientoDto {
     public void setTags(List<Tag> tags) {
         this.tags = tags;
     }
-    
-    
 }

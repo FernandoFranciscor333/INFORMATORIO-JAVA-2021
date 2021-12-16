@@ -3,18 +3,14 @@ package com.informatorio.startupweb.entity;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.annotations.CreationTimestamp;
-
 import lombok.NonNull;
 import lombok.ToString;
 
 @Entity
-//@Getter @Setter
 @ToString
 @Table(name="usuario")
 public class Usuario {
@@ -154,5 +150,4 @@ public class Usuario {
         emprendimientos.remove(emprendimiento);
         emprendimiento.setCreador(null);
     }
-    
 }

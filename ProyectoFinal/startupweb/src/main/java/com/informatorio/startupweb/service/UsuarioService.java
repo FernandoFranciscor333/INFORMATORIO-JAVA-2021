@@ -3,13 +3,10 @@ package com.informatorio.startupweb.service;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
 import java.util.Optional;
 import java.util.stream.Collectors;
-
 import com.informatorio.startupweb.entity.Usuario;
 import com.informatorio.startupweb.repository.UsuarioRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +16,7 @@ public class UsuarioService {
     @Autowired
     UsuarioRepository usuarioRepository;
 
+    //GET ALL/BY ID
     public ArrayList<Usuario> obtenerTodosLosUsuarios(){
         return (ArrayList<Usuario>) usuarioRepository.findAll();
     }
@@ -69,8 +67,7 @@ public class UsuarioService {
             usuarioActualizado.setTipoDeUsuario(usuario.getTipoDeUsuario());
         }
         return usuarioRepository.save(usuarioActualizado);
-    }
-    
+    }    
 
     // OBTENER USUARIOS POR CIUDAD
     public List<Usuario> obtenerUsuariosPorCiudad(String ciudad) throws Exception{
@@ -79,9 +76,7 @@ public class UsuarioService {
             return usuarios;            
         } catch (Exception e) {
             throw new Exception(e.getMessage());
-        }    
-        
-        
+        } 
     }
 
     // OBTENER USUARIOS POSTERIORES A X FECHA DE CREACION 
@@ -91,6 +86,4 @@ public class UsuarioService {
                                 p.getFechaDeAlta()) <= 0).collect(Collectors.toList());
         return usuarios;        
     }
-
-
 }

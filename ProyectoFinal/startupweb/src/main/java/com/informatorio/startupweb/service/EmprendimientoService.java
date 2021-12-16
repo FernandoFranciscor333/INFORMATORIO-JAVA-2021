@@ -1,21 +1,13 @@
 package com.informatorio.startupweb.service;
 
 import java.util.ArrayList;
-
 import java.util.List;
-
-
 import javax.persistence.EntityNotFoundException;
-
-
 import com.informatorio.startupweb.dto.EmprendimientoDto;
 import com.informatorio.startupweb.entity.Emprendimiento;
-
 import com.informatorio.startupweb.entity.Usuario;
 import com.informatorio.startupweb.repository.EmprendimientoRepository;
-import com.informatorio.startupweb.repository.TagRepository;
 import com.informatorio.startupweb.repository.UsuarioRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,18 +16,16 @@ public class EmprendimientoService {
 
     private final EmprendimientoRepository emprendimientoRepository;
     private final UsuarioRepository usuarioRepository;
-    private final TagRepository tagRepository;
+    
 
     @Autowired
     public EmprendimientoService(EmprendimientoRepository emprendimientoRepository,
-                                 UsuarioRepository usuarioRepository,
-                                 TagRepository tagRepository) {
+                                 UsuarioRepository usuarioRepository) {
         this.emprendimientoRepository = emprendimientoRepository;
-        this.usuarioRepository = usuarioRepository;
-        this.tagRepository = tagRepository;
+        this.usuarioRepository = usuarioRepository;        
     }
 
-
+    //GET ALL/BY ID
     public ArrayList<Emprendimiento> obtenerTodosLosEmprendimientos() {
         return (ArrayList<Emprendimiento>)emprendimientoRepository.findAll();
     }
@@ -107,7 +97,4 @@ public class EmprendimientoService {
             throw new Exception(e.getMessage());
         }        
     }    
-
-
-         
 }

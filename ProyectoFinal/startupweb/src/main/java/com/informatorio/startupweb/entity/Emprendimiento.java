@@ -1,19 +1,11 @@
 package com.informatorio.startupweb.entity;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
 import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import org.hibernate.annotations.CreationTimestamp;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -60,26 +52,11 @@ public class Emprendimiento {
     @OneToMany(mappedBy = "emprendimiento",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Voto> votos = new ArrayList<>();
 
-    
-    //@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-
     @ManyToMany(mappedBy = "emprendimientos")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<Evento> eventos = new ArrayList<>();
 
     private Integer contadorDeVotos = 0;
-
-    /*@JoinTable(
-        name = "eventos_emprendimientos",
-        joinColumns = {@JoinColumn(name = "emprendimientos",nullable = false)},
-        inverseJoinColumns = {@JoinColumn(name = "eventos",nullable = false)}
-    )
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,//When we save the Emprendimiento entity, the Event entity will also get saved
-            CascadeType.MERGE //Cascade the merge operation to all associated entities merge
-    })*/
-
-
 
     public Emprendimiento() {
     }
@@ -90,8 +67,6 @@ public class Emprendimiento {
         }
         this.eventos.add(evento);
     }   
-
-    
 
     public Integer getContadorDeVotos() {
         return contadorDeVotos;
@@ -105,13 +80,9 @@ public class Emprendimiento {
         return eventos;
     }
 
-
-
     public void setEventos(List<Evento> eventos) {
         this.eventos = eventos;
     }
-
-
 
     public List<Voto> getVotos() {
         return votos;
@@ -121,108 +92,83 @@ public class Emprendimiento {
         this.votos = votos;
     }
 
-
-
-
     public Long getId() {
         return id;
     }
-
 
     public void setId(Long id) {
         this.id = id;
     }
 
-
     public String getNombre() {
         return nombre;
     }
-
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-
     public Usuario getCreador() {
         return creador;
     }
-
 
     public void setCreador(Usuario creador) {
         this.creador = creador;
     }
 
-
     public String getDescripcion() {
         return descripcion;
     }
-
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
-
     public String getContenido() {
         return contenido;
     }
-
 
     public void setContenido(String contenido) {
         this.contenido = contenido;
     }
 
-
     public LocalDate getFechaDeAlta() {
         return fechaDeAlta;
     }
-
 
     public void setFechaDeAlta(LocalDate fechaDeAlta) {
         this.fechaDeAlta = fechaDeAlta;
     }
 
-
     public Double getObjetivo() {
         return objetivo;
     }
-
 
     public void setObjetivo(Double objetivo) {
         this.objetivo = objetivo;
     }
 
-
     public Boolean getPublicado() {
         return publicado;
     }
-
 
     public void setPublicado(Boolean publicado) {
         this.publicado = publicado;
     }
 
-
     public String getUrl() {
         return url;
     }
-
 
     public void setUrl(String url) {
         this.url = url;
     }
 
-
     public List<Tag> getTags() {
         return tags;
     }
 
-
     public void setTags(List<Tag> tags) {
         this.tags = tags;
-    }   
-
-    
-    
+    } 
 }

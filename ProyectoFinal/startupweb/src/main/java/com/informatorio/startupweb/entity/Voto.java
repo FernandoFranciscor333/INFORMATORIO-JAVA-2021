@@ -1,13 +1,8 @@
 package com.informatorio.startupweb.entity;
-
 import java.time.LocalDate;
-
 import javax.persistence.*;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import org.hibernate.annotations.CreationTimestamp;
-
 
 @Entity
 public class Voto {
@@ -68,8 +63,4 @@ public class Voto {
     public void setFechaDeCreacion(LocalDate fechaDeCreacion) {
         this.fechaDeCreacion = fechaDeCreacion;
     }
-
-    
-
-    
 }

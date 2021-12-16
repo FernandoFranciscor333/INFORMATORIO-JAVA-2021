@@ -3,7 +3,6 @@ package com.informatorio.startupweb.dto;
 public class EventoDto {
 
     private Long eventoId;
-
     private Long emprendimientoId;
 
     public Long getEventoId() {
@@ -21,6 +20,4 @@ public class EventoDto {
     public void setEmprendimientoId(Long emprendimientoId) {
         this.emprendimientoId = emprendimientoId;
     }
-
-    
 }

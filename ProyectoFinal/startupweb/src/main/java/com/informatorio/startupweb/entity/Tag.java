@@ -3,10 +3,8 @@ package com.informatorio.startupweb.entity;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
@@ -57,20 +55,5 @@ public class Tag {
 
     public void setEmprendimientos(List<Emprendimiento> emprendimientos) {
         this.emprendimientos = emprendimientos;
-    }
-
-    /*@Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Tag tags = (Tag) o;
-        return id != null && Objects.equals(id, tags.id);
-    }*/
-
-    /*@Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }*/
-
-    
+    }    
 }

@@ -1,16 +1,10 @@
 package com.informatorio.startupweb.dto;
 
-import java.time.LocalDate;
-
 public class VotoDto {
 
     private Long usuarioId;
     private Long emprendimientoId;
-    private String generadoPor;
-
-    
-    
-    //private boolean votado;
+    private String generadoPor; 
 
     public Long getUsuarioId() {
         return usuarioId;
@@ -30,15 +24,5 @@ public class VotoDto {
     }
     public void setGeneradoPor(String generadoPor) {
         this.generadoPor = generadoPor;
-    }
-
-    /*public boolean isVotado() {
-        return votado;
-    }
-    public void setVotado(boolean votado) {
-        this.votado = votado;
-    }*/
-
-    
-    
+    }    
 }

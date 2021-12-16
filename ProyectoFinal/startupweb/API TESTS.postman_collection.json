@@ -1,0 +1,832 @@
+{
+	"info": {
+		"_postman_id": "ad653c23-6668-4c8e-bada-87a1f1caaa5d",
+		"name": "API TESTS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Usuario1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Juan\",\r\n    \"apellido\":\"Perez\",\r\n    \"email\":\"JP@Coso.com\",\r\n    \"password\":\"12345\",\r\n    \"ciudad\":\"Resistencia\",\r\n    \"provincia\":\"Chaco\",\r\n    \"pais\":\"Argentina\",\r\n    \"tipoDeUsuario\":\"Usuario\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/usuario/nuevo_usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"nuevo_usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuario2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Maria\",\r\n    \"apellido\":\"Gomez\",\r\n    \"email\":\"MG@Coso.com\",\r\n    \"password\":\"abcdef\",\r\n    \"ciudad\":\"Resistencia\",\r\n    \"provincia\":\"Chaco\",\r\n    \"pais\":\"Argentina\",\r\n    \"tipoDeUsuario\":\"Usuario\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/usuario/nuevo_usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"nuevo_usuario"
+							]
+						},
+						"description": "Agregar Usuario 2"
+					},
+					"response": []
+				},
+				{
+					"name": "Usuario3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Pedro\",\r\n    \"apellido\":\"Fernandez\",\r\n    \"email\":\"PF@Coso.com\",\r\n    \"password\":\"abc1\",\r\n    \"ciudad\":\"Corrientes\",\r\n    \"provincia\":\"Corrientes\",\r\n    \"pais\":\"Argentina\",\r\n    \"tipoDeUsuario\":\"Usuario\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/usuario/nuevo_usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"nuevo_usuario"
+							]
+						},
+						"description": "Agregar Usuario 3"
+					},
+					"response": []
+				},
+				{
+					"name": "Usuario4",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuario/nuevo_usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"nuevo_usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuario5",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuario/nuevo_usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"nuevo_usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuario6",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuario/nuevo_usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"nuevo_usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuario7",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Martin\",\r\n    \"apellido\":\"Delete\",\r\n    \"email\":\"MD@Coso.com\",\r\n    \"password\":\"12345\",\r\n    \"ciudad\":\"Resistencia\",\r\n    \"provincia\":\"Chaco\",\r\n    \"pais\":\"Argentina\",\r\n    \"tipoDeUsuario\":\"COLABORADOR\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/usuario/nuevo_usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"nuevo_usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET USUARIOS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuario/usuarios_lista",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"usuarios_lista"
+							]
+						},
+						"description": "OBTENER TODOS LOS USUARIOS"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE USUARIOS",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuario/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"7"
+							]
+						},
+						"description": "ELIMINAR USUARIO POR ID"
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE USUARIOS",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Juan P\",\r\n    \"apellido\":\"Perez\",\r\n    \"email\":\"JP@Coso.com\",\r\n    \"password\":\"123456\",\r\n    \"ciudad\":\"Saenz Peña\",\r\n    \"provincia\":\"Chaco\",\r\n    \"pais\":\"Argentina\",\r\n    \"tipoDeUsuario\":\"Usuario\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/usuario/14",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BUSQUEDA CIUDAD",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/usuario/busqueda?ciudad=Resistencia",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"busqueda"
+							],
+							"query": [
+								{
+									"key": "ciudad",
+									"value": "Resistencia"
+								}
+							]
+						},
+						"description": "BUSCAR USUARIO POR CIUDAD"
+					},
+					"response": []
+				},
+				{
+					"name": "BUSQUEDA FECHA",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuario/busqueda_fecha?fecha=2020-01-01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"busqueda_fecha"
+							],
+							"query": [
+								{
+									"key": "fecha",
+									"value": "2020-01-01"
+								}
+							]
+						},
+						"description": "BUSCAR USUARIO POR A PARTIR DE UNA FECHA DE ALTA"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Emprendimientos",
+			"item": [
+				{
+					"name": "Emprendimiento 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Emprendimiento1\",\r\n    \"descripcion\":\"Emprendimiento de prueba 1\",\r\n    \"contenido\":\"Contenido del emprendimiento de prueba 1\",\r\n    \"objetivo\":\"100000\",\r\n    \"publicado\":\"false\",\r\n    \"url\":\"www.prueba1.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/emprendimiento/nuevo_emprendimiento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"emprendimiento",
+								"nuevo_emprendimiento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Emprendimiento2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Emprendimiento2\",\r\n    \"descripcion\":\"Emprendimiento de prueba 2\",\r\n    \"contenido\":\"Contenido del emprendimiento de prueba 2\",\r\n    \"objetivo\":\"200000\",\r\n    \"publicado\":\"false\",\r\n    \"url\":\"www.prueba2.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/emprendimiento/nuevo_emprendimiento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"emprendimiento",
+								"nuevo_emprendimiento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Emprendimiento3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Emprendimiento3\",\r\n    \"descripcion\":\"Emprendimiento de prueba 3\",\r\n    \"contenido\":\"Contenido del emprendimiento de prueba 3\",\r\n    \"objetivo\":\"300000\",\r\n    \"publicado\":\"false\",\r\n    \"url\":\"www.prueba3.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/emprendimiento/nuevo_emprendimiento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"emprendimiento",
+								"nuevo_emprendimiento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET EMPRENDIMIENTOS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/emprendimiento/emprendimientos_lista",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"emprendimiento",
+								"emprendimientos_lista"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE EMPRENDIMIENTOS",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/emprendimiento/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"emprendimiento",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE EMPRENDIMIENTOS",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Emprendimiento1ACTUALIZADO\",\r\n    \"descripcion\":\"Emprendimiento de prueba 1 ACTUALIZADO\",\r\n    \"contenido\":\"Contenido del emprendimiento de prueba 1 ACTUALIZADO\",\r\n    \"objetivo\":\"150000\",\r\n    \"publicado\":\"true\",\r\n    \"url\":\"www.prueba1actualizado.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/emprendimiento/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"emprendimiento",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BUSQUEDA NO PUBLICADOS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "BUSQUEDA TAGS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Votos",
+			"item": [
+				{
+					"name": "VOTO USUARIO 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuarioId\":1,\r\n    \"emprendimientoId\":2,\r\n    \"generadoPor\":\"web\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/voto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"voto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VOTO USUARIO 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuarioId\":2,\r\n    \"emprendimientoId\":2,\r\n    \"generadoPor\":\"web\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/voto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"voto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VOTO USUARIO 3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuarioId\":3,\r\n    \"emprendimientoId\":3,\r\n    \"generadoPor\":\"web\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/voto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"voto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VOTO USUARIO 4",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuarioId\":4,\r\n    \"emprendimientoId\":3,\r\n    \"generadoPor\":\"web\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/voto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"voto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VOTO USUARIO 5",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuarioId\":5,\r\n    \"emprendimientoId\":2,\r\n    \"generadoPor\":\"web\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/voto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"voto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VOTO USUARIO 6",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/voto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"voto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BUSQUEDA VOTOS POR USUARIO",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Eventos",
+			"item": [
+				{
+					"name": "Evento 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreEvento\":\"Evento1\",\r\n    \"detalles\":\"Evento de prueba 1\",\r\n    \"fechaDeCierre\":\"2021-12-30\",\r\n    \"estado\":\"ABIERTO\",\r\n    \"premio\":\"1000000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/eventos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"eventos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET EVENTOS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/eventos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"eventos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE EVENTO",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/eventos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"eventos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE EVENTO",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreEvento\":\"Evento1 ACTUALIZADO\",\r\n    \"detalles\":\"Evento de prueba 1 ACTUALIZADO\",\r\n    \"fechaDeCierre\":\"2021-12-31\",\r\n    \"estado\":\"ABIERTO\",\r\n    \"premio\":\"2000000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/eventos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"eventos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SUSCRIBIR EVENTO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"eventoId\":1,\r\n    \"emprendimientoId\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/eventos/suscribir",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"eventos",
+								"suscribir"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RANKING",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/eventos/1/ranking",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"eventos",
+								"1",
+								"ranking"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

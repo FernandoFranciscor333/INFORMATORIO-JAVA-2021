@@ -1,27 +1,21 @@
 package com.informatorio.startupweb.controller;
-
 import java.util.ArrayList;
-
 import javax.validation.Valid;
 import com.informatorio.startupweb.dto.EmprendimientoDto;
-import com.informatorio.startupweb.dto.EventoDto;
 import com.informatorio.startupweb.entity.Emprendimiento;
 import com.informatorio.startupweb.repository.EmprendimientoRepository;
 import com.informatorio.startupweb.repository.EventoRepository;
 import com.informatorio.startupweb.repository.TagRepository;
 import com.informatorio.startupweb.service.EmprendimientoService;
 import com.informatorio.startupweb.service.EventoService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 @RestController
 @RequestMapping("/emprendimiento")
 public class EmprendimientoController {
-
     
     @Autowired
     EmprendimientoRepository emprendimientoRepository;
@@ -33,7 +27,6 @@ public class EmprendimientoController {
     EventoRepository eventoRepository;
     @Autowired
     EventoService eventoService;
-
 
     //OBTENER TODOS LOS EMPRENDIMIENTOS
     @GetMapping("/emprendimientos_lista")
@@ -85,30 +78,5 @@ public class EmprendimientoController {
                 ("{/error\": \""+e.getMessage()+"\"}"));
         }
     }
-
-    //REGISTRAR EVENTO
-    /*@PostMapping(value = "registrar/{emprendimientoId}/eventos/{eventoId}")
-    public ResponseEntity<?> registrarEvento(@PathVariable("emprendimientoId") Long emprendimientoId,
-                                             @PathVariable("eventoId") Long eventoId, EventoDto eventoDTO) {
-        emprendimientoRepository.findById(emprendimientoId);
-        eventoRepository.findById(eventoId);
-        return new ResponseEntity<>(eventoService.registrar(emprendimientoId, eventoId, eventoDTO), HttpStatus.CREATED);                                     
-    }*/
-
-
-
-    /*@GetMapping("/busqueda_por_tag")
-    public ResponseEntity<?> busqueda(@RequestParam String tag){
-        try {
-            return ResponseEntity.status(HttpStatus.OK).body(
-                emprendimientoService.obtenerEmprendimientosPorTag(tag));
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-                ("{/error\": \""+e.getMessage()+"\"}"));
-        }
-    }*/
-
-
-
     
 }

@@ -3,21 +3,13 @@ package com.informatorio.startupweb.entity;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
-
-
 
 @Entity
 @ToString
@@ -29,7 +21,6 @@ public class Evento {
     private Long id;
 
     private String nombreEvento;
-
     private String detalles;
 
     @CreationTimestamp
@@ -50,12 +41,8 @@ public class Evento {
 
     private Double premio;
 
-    public void agregarEmprendimiento(Emprendimiento emprendimiento){        
-        /*if (this.emprendimientos == null) {
-            this.emprendimientos = new ArrayList<>();
-        }*/
+    public void agregarEmprendimiento(Emprendimiento emprendimiento){  
         this.emprendimientos.add(emprendimiento);
-        
     }
 
     public Evento() {
@@ -65,13 +52,9 @@ public class Evento {
         return nombreEvento;
     }
 
-
-
     public void setNombreEvento(String nombreEvento) {
         this.nombreEvento = nombreEvento;
     }
-
-
 
     public Long getId() {
         return id;
@@ -127,8 +110,5 @@ public class Evento {
 
     public void setPremio(Double premio) {
         this.premio = premio;
-    }
-
-    
-    
+    }    
 }
